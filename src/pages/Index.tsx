@@ -5,7 +5,7 @@ import HeroSection from "@/components/HeroSection";
 import FeaturesSection from "@/components/FeaturesSection";
 import AboutUsSection from "@/components/AboutUsSection";
 import CallToActionSection from "@/components/CallToActionSection";
-import Footer from "@/components/Footer"; // Import the new Footer component
+import Footer from "@/components/Footer";
 
 const Index = () => {
   return (
@@ -13,11 +13,17 @@ const Index = () => {
       <Header />
       <main className="flex-grow">
         <HeroSection />
-        <FeaturesSection />
-        <AboutUsSection />
-        <CallToActionSection />
+        <div id="features">
+          <FeaturesSection />
+        </div>
+        <div id="about-us">
+          <AboutUsSection />
+        </div>
+        <div id="contact"> {/* Using 'contact' ID for the CallToActionSection as it often serves as the contact point */}
+          <CallToActionSection />
+        </div>
       </main>
-      <Footer /> {/* Render the Footer component */}
+      <Footer />
     </div>
   );
 };
