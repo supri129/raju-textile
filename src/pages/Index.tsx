@@ -1,16 +1,20 @@
-// Update this page (the content is just a fallback if you fail to update the page)
+"use client";
 
 import { MadeWithDyad } from "@/components/made-with-dyad";
+import Header from "@/components/Header"; // Import the new Header component
 
 const Index = () => {
   return (
-    <div className="min-h-screen flex items-center justify-center bg-gray-100">
-      <div className="text-center">
-        <h1 className="text-4xl font-bold mb-4">Welcome to Your Blank App</h1>
-        <p className="text-xl text-gray-600">
-          Start building your amazing project here!
-        </p>
-      </div>
+    <div className="min-h-screen flex flex-col bg-gray-100 dark:bg-background">
+      <Header /> {/* Render the Header component */}
+      <main className="flex-grow flex items-center justify-center">
+        <div className="text-center">
+          <h1 className="text-4xl font-bold mb-4 text-foreground">Welcome to Your Blank App</h1>
+          <p className="text-xl text-muted-foreground">
+            Start building your amazing project here!
+          </p>
+        </div>
+      </main>
       <MadeWithDyad />
     </div>
   );
