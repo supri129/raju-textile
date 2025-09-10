@@ -3,29 +3,26 @@
 import React from "react";
 import { NavLink, useLocation, useNavigate } from "react-router-dom";
 import { Button } from "@/components/ui/button";
-import MobileNav from "./MobileNav"; // Import the new MobileNav component
+import MobileNav from "./MobileNav";
 
 const Header = () => {
   const navigate = useNavigate();
   const location = useLocation();
 
   const handleScrollToSection = (id: string) => {
-    // If already on the home page, scroll directly
     if (location.pathname === "/") {
       const element = document.getElementById(id);
       if (element) {
         element.scrollIntoView({ behavior: "smooth" });
       }
     } else {
-      // If on a different page, navigate to home and then scroll
       navigate(`/#${id}`);
-      // Use a timeout to ensure navigation completes before scrolling
       setTimeout(() => {
         const element = document.getElementById(id);
         if (element) {
           element.scrollIntoView({ behavior: "smooth" });
         }
-      }, 100); // Small delay to allow route change
+      }, 100);
     }
   };
 
@@ -57,14 +54,14 @@ const Header = () => {
             About Us
           </button>
           <NavLink
-            to="/upload-design"
+            to="/search-bar"
             className={({ isActive }) =>
               `text-lg font-medium transition-colors hover:text-white ${
                 isActive ? "text-white" : "text-primary-foreground/80"
               }`
             }
           >
-            Upload Design
+            Search Bar
           </NavLink>
           <button
             onClick={() => handleScrollToSection("contact")}
@@ -79,7 +76,7 @@ const Header = () => {
             Request a Quote
           </Button>
         </nav>
-        <MobileNav /> {/* Render the MobileNav component */}
+        <MobileNav />
       </div>
     </header>
   );

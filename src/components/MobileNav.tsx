@@ -12,24 +12,21 @@ const MobileNav = () => {
   const location = useLocation();
 
   const handleScrollToSection = (id: string) => {
-    setIsOpen(false); // Close the sheet when a link is clicked
+    setIsOpen(false);
 
-    // If already on the home page, scroll directly
     if (location.pathname === "/") {
       const element = document.getElementById(id);
       if (element) {
         element.scrollIntoView({ behavior: "smooth" });
       }
     } else {
-      // If on a different page, navigate to home and then scroll
       navigate(`/#${id}`);
-      // Use a timeout to ensure navigation completes before scrolling
       setTimeout(() => {
         const element = document.getElementById(id);
         if (element) {
           element.scrollIntoView({ behavior: "smooth" });
         }
-      }, 100); // Small delay to allow route change
+      }, 100);
     }
   };
 
@@ -50,7 +47,7 @@ const MobileNav = () => {
                 isActive && location.hash === "" && location.pathname === "/" ? "text-white" : "text-primary-foreground/80"
               }`
             }
-            onClick={() => setIsOpen(false)} // Close sheet for home link
+            onClick={() => setIsOpen(false)}
           >
             Home
           </NavLink>
@@ -67,15 +64,15 @@ const MobileNav = () => {
             About Us
           </button>
           <NavLink
-            to="/upload-design"
+            to="/search-bar"
             className={({ isActive }) =>
               `text-lg font-medium transition-colors hover:text-white text-left ${
                 isActive ? "text-white" : "text-primary-foreground/80"
               }`
             }
-            onClick={() => setIsOpen(false)} // Close sheet for upload design link
+            onClick={() => setIsOpen(false)}
           >
-            Upload Design
+            Search Bar
           </NavLink>
           <button
             onClick={() => handleScrollToSection("contact")}
