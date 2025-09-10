@@ -1,16 +1,36 @@
 "use client";
 
 import React, { useState } from "react";
-import { NavLink } from "react-router-dom";
+import { NavLink, useLocation, useNavigate } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
 import { Menu } from "lucide-react";
 
 const MobileNav = () => {
   const [isOpen, setIsOpen] = useState(false);
+  const navigate = useNavigate();
+  const location = useLocation();
 
-  const handleLinkClick = () => {
+  const handleScrollToSection = (id: string) => {
     setIsOpen(false); // Close the sheet when a link is clicked
+
+    // If already on the home page, scroll directly
+    if (location.pathname === "/") {
+      const element = document.getElementById(id);
+      if (element) {
+        element.scrollIntoView({ behavior: "smooth" });
+      }
+    } else {
+      // If on a different page, navigate to home and then scroll
+      navigate(`/#${id}`);
+      // Use a timeout to ensure navigation completes before scrolling
+      setTimeout(() => {
+        const element = document.getElementById(id);
+        if (element) {
+          element.scrollIntoView({ behavior: "smooth" });
+        }
+      }, 100); // Small delay to allow route change
+    }
   };
 
   return (
@@ -27,35 +47,35 @@ const MobileNav = () => {
             to="/"
             className={({ isActive }) =>
               `text-lg font-medium transition-colors hover:text-white ${
-                isActive ? "text-white" : "text-primary-foreground/80"
+                isActive && location.hash === "" ? "text-white" : "text-primary-foreground/80"
               }`
             }
-            onClick={handleLinkClick}
+            onClick={() => setIsOpen(false)} // Close sheet for home link
           >
             Home
           </NavLink>
-          <NavLink
-            to="#features"
-            className="text-lg font-medium text-primary-foreground/80 transition-colors hover:text-white"
-            onClick={handleLinkClick}
+          <button
+            onClick={() => handleScrollToSection("features")}
+            className="text-lg font-medium text-primary-foreground/80 transition-colors hover:text-white text-left"
           >
             Features
-          </NavLink>
-          <NavLink
-            to="#about-us"
-            className="text-lg font-medium text-primary-foreground/80 transition-colors hover:text-white"
-            onClick={handleLinkClick}
+          </button>
+          <button
+            onClick={() => handleScrollToSection("about-us")}
+            className="text-lg font-medium text-primary-foreground/80 transition-colors hover:text-white text-left"
           >
             About Us
-          </NavLink>
-          <NavLink
-            to="#contact"
-            className="text-lg font-medium text-primary-foreground/80 transition-colors hover:text-white"
-            onClick={handleLinkClick}
+          </button>
+          <button
+            onClick={() => handleScrollToSection("contact")}
+            className="text-lg font-medium text-primary-foreground/80 transition-colors hover:text-white text-left"
           >
             Contact
-          </NavLink>
-          <Button className="mt-4 bg-white text-blue-600 hover:bg-gray-100 px-6 py-2 rounded-full shadow-lg transition-all duration-300 ease-in-out transform hover:scale-105" onClick={handleLinkClick}>
+          </button>
+          <Button
+            className="mt-4 bg-white text-blue-600 hover:bg-gray-100 px-6 py-2 rounded-full shadow-lg transition-all duration-300 ease-in-out transform hover:scale-105"
+            onClick={() => handleScrollToSection("contact")}
+          >
             Request a Quote
           </Button>
         </nav>

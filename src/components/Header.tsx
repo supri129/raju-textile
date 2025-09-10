@@ -1,11 +1,34 @@
 "use client";
 
 import React from "react";
-import { NavLink } from "react-router-dom";
+import { NavLink, useLocation, useNavigate } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import MobileNav from "./MobileNav"; // Import the new MobileNav component
 
 const Header = () => {
+  const navigate = useNavigate();
+  const location = useLocation();
+
+  const handleScrollToSection = (id: string) => {
+    // If already on the home page, scroll directly
+    if (location.pathname === "/") {
+      const element = document.getElementById(id);
+      if (element) {
+        element.scrollIntoView({ behavior: "smooth" });
+      }
+    } else {
+      // If on a different page, navigate to home and then scroll
+      navigate(`/#${id}`);
+      // Use a timeout to ensure navigation completes before scrolling
+      setTimeout(() => {
+        const element = document.getElementById(id);
+        if (element) {
+          element.scrollIntoView({ behavior: "smooth" });
+        }
+      }, 100); // Small delay to allow route change
+    }
+  };
+
   return (
     <header className="bg-primary text-primary-foreground p-4 shadow-md sticky top-0 z-50">
       <div className="container mx-auto flex items-center justify-between">
@@ -15,31 +38,34 @@ const Header = () => {
             to="/"
             className={({ isActive }) =>
               `text-lg font-medium transition-colors hover:text-white ${
-                isActive ? "text-white" : "text-primary-foreground/80"
+                isActive && location.hash === "" ? "text-white" : "text-primary-foreground/80"
               }`
             }
           >
             Home
           </NavLink>
-          <NavLink
-            to="#features" // Using hash links for sections on the same page
+          <button
+            onClick={() => handleScrollToSection("features")}
             className="text-lg font-medium text-primary-foreground/80 transition-colors hover:text-white"
           >
             Features
-          </NavLink>
-          <NavLink
-            to="#about-us" // Using hash links for sections on the same page
+          </button>
+          <button
+            onClick={() => handleScrollToSection("about-us")}
             className="text-lg font-medium text-primary-foreground/80 transition-colors hover:text-white"
           >
             About Us
-          </NavLink>
-          <NavLink
-            to="#contact" // Using hash links for sections on the same page
+          </button>
+          <button
+            onClick={() => handleScrollToSection("contact")}
             className="text-lg font-medium text-primary-foreground/80 transition-colors hover:text-white"
           >
             Contact
-          </NavLink>
-          <Button className="bg-white text-blue-600 hover:bg-gray-100 px-6 py-2 text-base rounded-full shadow-lg transition-all duration-300 ease-in-out transform hover:scale-105">
+          </button>
+          <Button
+            className="bg-white text-blue-600 hover:bg-gray-100 px-6 py-2 text-base rounded-full shadow-lg transition-all duration-300 ease-in-out transform hover:scale-105"
+            onClick={() => handleScrollToSection("contact")}
+          >
             Request a Quote
           </Button>
         </nav>
