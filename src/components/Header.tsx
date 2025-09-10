@@ -38,7 +38,7 @@ const Header = () => {
             to="/"
             className={({ isActive }) =>
               `text-lg font-medium transition-colors hover:text-white ${
-                isActive && location.hash === "" ? "text-white" : "text-primary-foreground/80"
+                isActive && location.hash === "" && location.pathname === "/" ? "text-white" : "text-primary-foreground/80"
               }`
             }
           >
@@ -56,6 +56,16 @@ const Header = () => {
           >
             About Us
           </button>
+          <NavLink
+            to="/upload-design"
+            className={({ isActive }) =>
+              `text-lg font-medium transition-colors hover:text-white ${
+                isActive ? "text-white" : "text-primary-foreground/80"
+              }`
+            }
+          >
+            Upload Design
+          </NavLink>
           <button
             onClick={() => handleScrollToSection("contact")}
             className="text-lg font-medium text-primary-foreground/80 transition-colors hover:text-white"

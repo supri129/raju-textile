@@ -47,7 +47,7 @@ const MobileNav = () => {
             to="/"
             className={({ isActive }) =>
               `text-lg font-medium transition-colors hover:text-white ${
-                isActive && location.hash === "" ? "text-white" : "text-primary-foreground/80"
+                isActive && location.hash === "" && location.pathname === "/" ? "text-white" : "text-primary-foreground/80"
               }`
             }
             onClick={() => setIsOpen(false)} // Close sheet for home link
@@ -66,6 +66,17 @@ const MobileNav = () => {
           >
             About Us
           </button>
+          <NavLink
+            to="/upload-design"
+            className={({ isActive }) =>
+              `text-lg font-medium transition-colors hover:text-white text-left ${
+                isActive ? "text-white" : "text-primary-foreground/80"
+              }`
+            }
+            onClick={() => setIsOpen(false)} // Close sheet for upload design link
+          >
+            Upload Design
+          </NavLink>
           <button
             onClick={() => handleScrollToSection("contact")}
             className="text-lg font-medium text-primary-foreground/80 transition-colors hover:text-white text-left"
