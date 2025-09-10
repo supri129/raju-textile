@@ -3,13 +3,14 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
 import { Button } from "@/components/ui/button";
+import MobileNav from "./MobileNav"; // Import the new MobileNav component
 
 const Header = () => {
   return (
-    <header className="bg-primary text-primary-foreground p-4 shadow-md">
+    <header className="bg-primary text-primary-foreground p-4 shadow-md sticky top-0 z-50">
       <div className="container mx-auto flex items-center justify-between">
         <h1 className="text-2xl font-bold">Raju Textile</h1>
-        <nav className="hidden md:flex space-x-6">
+        <nav className="hidden md:flex space-x-6 items-center">
           <NavLink
             to="/"
             className={({ isActive }) =>
@@ -38,27 +39,11 @@ const Header = () => {
           >
             Contact
           </NavLink>
-        </nav>
-        <div className="md:hidden">
-          {/* Mobile navigation toggle can go here later */}
-          <Button variant="ghost" size="icon" className="text-primary-foreground">
-            {/* Icon for mobile menu */}
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              className="h-6 w-6"
-              fill="none"
-              viewBox="0 0 24 24"
-              stroke="currentColor"
-            >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth={2}
-                d="M4 6h16M4 12h16M4 18h16"
-              />
-            </svg>
+          <Button className="bg-white text-blue-600 hover:bg-gray-100 px-6 py-2 text-base rounded-full shadow-lg transition-all duration-300 ease-in-out transform hover:scale-105">
+            Request a Quote
           </Button>
-        </div>
+        </nav>
+        <MobileNav /> {/* Render the MobileNav component */}
       </div>
     </header>
   );
