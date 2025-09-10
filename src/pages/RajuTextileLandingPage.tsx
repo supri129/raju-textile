@@ -5,7 +5,7 @@ import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Label } from "@/components/ui/label";
 import { Separator } from "@/components/ui/separator";
-import { Fabric, Shirt, Mail, Phone, MapPin } from 'lucide-react';
+import { Shirt, Mail, Phone, MapPin } from 'lucide-react'; // Changed Fabric to Shirt
 
 const RajuTextileLandingPage = () => {
   return (
@@ -13,7 +13,7 @@ const RajuTextileLandingPage = () => {
       {/* Header */}
       <header className="container mx-auto px-4 py-6 flex justify-between items-center bg-white shadow-sm rounded-b-lg">
         <div className="flex items-center space-x-2">
-          <Fabric className="h-8 w-8 text-blue-600" />
+          <Shirt className="h-8 w-8 text-blue-600" /> {/* Changed Fabric to Shirt */}
           <h1 className="text-3xl font-bold text-blue-800">Raju Textile</h1>
         </div>
         <nav className="hidden md:flex space-x-6">
