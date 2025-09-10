@@ -1,7 +1,7 @@
 "use client";
 
 import React from "react";
-import { Mail, Phone, MapPin } from "lucide-react";
+import { Mail, Phone, MapPin, Facebook, Instagram, Linkedin } from "lucide-react"; // Import social media icons
 
 const Footer = () => {
   return (
@@ -34,19 +34,18 @@ const Footer = () => {
           </ul>
         </div>
 
-        {/* Quick Links / Social Media (Optional, can be expanded) */}
+        {/* Follow Us / Social Media */}
         <div className="space-y-4">
           <h3 className="text-xl font-bold">Follow Us</h3>
           <div className="flex justify-center md:justify-start gap-4">
-            {/* Placeholder for social media icons */}
-            <a href="#" className="text-primary-foreground/80 hover:text-white transition-colors">
-              Facebook
+            <a href="#" className="text-primary-foreground/80 hover:text-white transition-colors" aria-label="Facebook">
+              <Facebook className="h-6 w-6" />
             </a>
-            <a href="#" className="text-primary-foreground/80 hover:text-white transition-colors">
-              Instagram
+            <a href="#" className="text-primary-foreground/80 hover:text-white transition-colors" aria-label="Instagram">
+              <Instagram className="h-6 w-6" />
             </a>
-            <a href="#" className="text-primary-foreground/80 hover:text-white transition-colors">
-              LinkedIn
+            <a href="#" className="text-primary-foreground/80 hover:text-white transition-colors" aria-label="LinkedIn">
+              <Linkedin className="h-6 w-6" />
             </a>
           </div>
         </div>
