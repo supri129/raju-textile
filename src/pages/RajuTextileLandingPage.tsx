@@ -5,14 +5,25 @@ import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Label } from "@/components/ui/label";
 import { Separator } from "@/components/ui/separator";
-import { Mail, Phone, MapPin } from 'lucide-react';
-import Header from '@/components/Header';
-import Footer from '@/components/Footer';
+import { Shirt, Mail, Phone, MapPin } from 'lucide-react'; // Changed Fabric to Shirt
 
 const RajuTextileLandingPage = () => {
   return (
     <div className="min-h-screen bg-gradient-to-br from-gray-50 to-gray-100 text-gray-800">
-      <Header />
+      {/* Header */}
+      <header className="container mx-auto px-4 py-6 flex justify-between items-center bg-white shadow-sm rounded-b-lg">
+        <div className="flex items-center space-x-2">
+          <Shirt className="h-8 w-8 text-blue-600" /> {/* Changed Fabric to Shirt */}
+          <h1 className="text-3xl font-bold text-blue-800">Raju Textile</h1>
+        </div>
+        <nav className="hidden md:flex space-x-6">
+          <a href="#home" className="text-lg font-medium text-gray-700 hover:text-blue-600 transition-colors">Home</a>
+          <a href="#products" className="text-lg font-medium text-gray-700 hover:text-blue-600 transition-colors">Products</a>
+          <a href="#about" className="text-lg font-medium text-gray-700 hover:text-blue-600 transition-colors">About Us</a>
+          <a href="#contact" className="text-lg font-medium text-gray-700 hover:text-blue-600 transition-colors">Contact</a>
+        </nav>
+        <Button className="md:hidden">Menu</Button> {/* Mobile menu button */}
+      </header>
 
       {/* Hero Section */}
       <section id="home" className="relative h-[60vh] md:h-[70vh] flex items-center justify-center text-center bg-cover bg-center" style={{ backgroundImage: "url('/placeholder.svg')" }}>
@@ -136,7 +147,16 @@ const RajuTextileLandingPage = () => {
 
       <Separator className="my-8" />
 
-      <Footer />
+      {/* Footer */}
+      <footer className="bg-gray-800 text-white py-8">
+        <div className="container mx-auto px-4 text-center text-sm">
+          <p>&copy; {new Date().getFullYear()} Raju Textile. All rights reserved.</p>
+          <div className="flex justify-center space-x-4 mt-4">
+            <a href="#" className="hover:text-blue-400">Privacy Policy</a>
+            <a href="#" className="hover:text-blue-400">Terms of Service</a>
+          </div>
+        </div>
+      </footer>
     </div>
   );
 };
