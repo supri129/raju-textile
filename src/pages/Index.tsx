@@ -1,11 +1,11 @@
 "use client";
 
-import { MadeWithDyad } from "@/components/made-with-dyad";
 import Header from "@/components/Header";
 import HeroSection from "@/components/HeroSection";
-import FeaturesSection from "@/components/FeaturesSection"; // Import the new FeaturesSection component
-import AboutUsSection from "@/components/AboutUsSection";   // Import the new AboutUsSection component
-import CallToActionSection from "@/components/CallToActionSection"; // Import the new CallToActionSection component
+import FeaturesSection from "@/components/FeaturesSection";
+import AboutUsSection from "@/components/AboutUsSection";
+import CallToActionSection from "@/components/CallToActionSection";
+import Footer from "@/components/Footer"; // Import the new Footer component
 
 const Index = () => {
   return (
@@ -13,11 +13,11 @@ const Index = () => {
       <Header />
       <main className="flex-grow">
         <HeroSection />
-        <FeaturesSection /> {/* Render the FeaturesSection component */}
-        <AboutUsSection />  {/* Render the AboutUsSection component */}
-        <CallToActionSection /> {/* Render the CallToActionSection component */}
+        <FeaturesSection />
+        <AboutUsSection />
+        <CallToActionSection />
       </main>
-      <MadeWithDyad />
+      <Footer /> {/* Render the Footer component */}
     </div>
   );
 };
