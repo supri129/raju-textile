@@ -13,7 +13,7 @@ const HeroSection = () => {
           </h1>
           <p className="text-lg md:text-xl text-blue-100">
             Experience seamless productivity and innovative features designed to elevate your workflow.
-          p>
+          </p>
           <div className="flex flex-col sm:flex-row justify-center gap-4">
             <Button className="bg-white text-blue-600 hover:bg-gray-100 px-8 py-3 text-lg rounded-full shadow-lg transition-all duration-300 ease-in-out transform hover:scale-105">
               Get Started
