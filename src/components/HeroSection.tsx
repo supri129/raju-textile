@@ -5,7 +5,7 @@ import { Button } from "@/components/ui/button";
 
 const HeroSection = () => {
   return (
-    <section className="relative w-full py-12 md:py-24 lg:py-32 bg-gradient-to-br from-purple-600 via-pink-500 to-orange-400 text-white flex items-center justify-center min-h-[calc(100vh-64px)]">
+    <section className="relative w-full py-12 md:py-24 lg:py-32 bg-gradient-to-br from-blue-500 to-blue-700 text-white flex items-center justify-center min-h-[calc(100vh-64px)]">
       <div className="container px-4 md:px-6 text-center">
         <div className="max-w-3xl mx-auto space-y-6">
           <h1 className="text-4xl font-bold tracking-tight sm:text-5xl md:text-6xl lg:text-7xl">
