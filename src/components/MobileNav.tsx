@@ -69,17 +69,6 @@ const MobileNav = () => {
           >
             Contact
           </button>
-          <NavLink
-            to="/dashboard"
-            className={({ isActive }) =>
-              `text-lg font-medium transition-colors hover:text-white ${
-                isActive ? "text-white" : "text-primary-foreground/80"
-              }`
-            }
-            onClick={() => setIsOpen(false)}
-          >
-            Dashboard
-          </NavLink>
           <Button
             className="mt-4 bg-white text-blue-600 hover:bg-gray-100 px-6 py-2 rounded-full shadow-lg transition-all duration-300 ease-in-out transform hover:scale-105"
             onClick={() => handleScrollToSection("contact")}
