@@ -2,7 +2,7 @@
 
 import React from "react";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { Shirt, Factory, Award, Leaf } from "lucide-react";
+import { Shirt, Factory, Scissors, Leaf } from "lucide-react";
 
 const features = [
   {
@@ -16,7 +16,7 @@ const features = [
     description: "Utilizing advanced technology and skilled artisans for superior textile production.",
   },
   {
-    icon: Award,
+    icon: Scissors,
     title: "Unmatched Craftsmanship",
     description: "Dedicated to precision and artistry, delivering products of exceptional finish.",
   },
@@ -38,7 +38,7 @@ const FeaturesSection = () => {
           {features.map((feature, index) => (
             <Card key={index} className="flex flex-col items-center p-6 shadow-lg hover:shadow-xl transition-shadow duration-300">
               <CardHeader>
-                <feature.icon className="h-12 w-12 text-blue-600 mb-4" />
+                <feature.icon className="h-12 w-12 text-primary mb-4" />
                 <CardTitle className="text-xl font-semibold text-gray-900 dark:text-foreground">
                   {feature.title}
                 </CardTitle>

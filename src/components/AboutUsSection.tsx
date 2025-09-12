@@ -8,8 +8,8 @@ const AboutUsSection = () => {
       <div className="container mx-auto px-4 md:px-6 flex flex-col lg:flex-row items-center gap-12">
         <div className="lg:w-1/2">
           <img
-            src="/placeholder.svg" // Placeholder image, you can replace this with a real image
-            alt="About Raju Textile"
+            src="https://images.unsplash.com/photo-1552664730-d307ca884978?q=80&w=2070&auto=format&fit=crop"
+            alt="Team working with textiles"
             width={600}
             height={400}
             className="rounded-lg shadow-xl object-cover w-full h-auto"
