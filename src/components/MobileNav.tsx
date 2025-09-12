@@ -33,18 +33,18 @@ const MobileNav = () => {
   return (
     <Sheet open={isOpen} onOpenChange={setIsOpen}>
       <SheetTrigger asChild>
-        <Button variant="ghost" size="icon" className="text-foreground md:hidden">
+        <Button variant="ghost" size="icon" className="text-primary-foreground md:hidden">
           <Menu className="h-6 w-6" />
           <span className="sr-only">Toggle navigation menu</span>
         </Button>
       </SheetTrigger>
-      <SheetContent side="left" className="w-[250px] sm:w-[300px] bg-background text-foreground">
+      <SheetContent side="left" className="w-[250px] sm:w-[300px] bg-primary text-primary-foreground">
         <nav className="flex flex-col gap-4 p-4">
           <NavLink
             to="/"
             className={({ isActive }) =>
-              `text-lg font-medium transition-colors hover:text-primary ${
-                isActive && location.hash === "" && location.pathname === "/" ? "text-primary" : "text-foreground/80"
+              `text-lg font-medium transition-colors hover:text-white ${
+                isActive && location.hash === "" && location.pathname === "/" ? "text-white" : "text-primary-foreground/80"
               }`
             }
             onClick={() => setIsOpen(false)}
@@ -53,27 +53,27 @@ const MobileNav = () => {
           </NavLink>
           <button
             onClick={() => handleScrollToSection("features")}
-            className="text-lg font-medium text-foreground/80 transition-colors hover:text-primary text-left"
+            className="text-lg font-medium text-primary-foreground/80 transition-colors hover:text-white text-left"
           >
             Features
           </button>
           <button
             onClick={() => handleScrollToSection("about-us")}
-            className="text-lg font-medium text-foreground/80 transition-colors hover:text-primary text-left"
+            className="text-lg font-medium text-primary-foreground/80 transition-colors hover:text-white text-left"
           >
             About Us
           </button>
           <button
             onClick={() => handleScrollToSection("contact")}
-            className="text-lg font-medium text-foreground/80 transition-colors hover:text-primary text-left"
+            className="text-lg font-medium text-primary-foreground/80 transition-colors hover:text-white text-left"
           >
             Contact
           </button>
           <NavLink
             to="/dashboard"
             className={({ isActive }) =>
-              `text-lg font-medium transition-colors hover:text-primary ${
-                isActive ? "text-primary" : "text-foreground/80"
+              `text-lg font-medium transition-colors hover:text-white ${
+                isActive ? "text-white" : "text-primary-foreground/80"
               }`
             }
             onClick={() => setIsOpen(false)}
@@ -81,7 +81,7 @@ const MobileNav = () => {
             Dashboard
           </NavLink>
           <Button
-            className="mt-4 bg-primary text-primary-foreground hover:bg-primary/90 px-6 py-2 rounded-full shadow-lg transition-all duration-300 ease-in-out transform hover:scale-105"
+            className="mt-4 bg-white text-blue-600 hover:bg-gray-100 px-6 py-2 rounded-full shadow-lg transition-all duration-300 ease-in-out transform hover:scale-105"
             onClick={() => handleScrollToSection("contact")}
           >
             Request a Quote
