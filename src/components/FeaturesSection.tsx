@@ -29,21 +29,21 @@ const features = [
 
 const FeaturesSection = () => {
   return (
-    <section className="py-16 bg-white dark:bg-background">
+    <section className="py-16 bg-background dark:bg-background">
       <div className="container mx-auto px-4 md:px-6 text-center">
-        <h2 className="text-3xl md:text-4xl font-bold mb-12 text-gray-800 dark:text-foreground">
+        <h2 className="text-3xl md:text-4xl font-bold mb-12 text-foreground">
           Why Choose Raju Textile?
         </h2>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
           {features.map((feature, index) => (
-            <Card key={index} className="flex flex-col items-center p-6 shadow-lg hover:shadow-xl transition-shadow duration-300">
+            <Card key={index} className="flex flex-col items-center p-6 shadow-lg hover:shadow-xl transition-shadow duration-300 bg-card">
               <CardHeader>
-                <feature.icon className="h-12 w-12 text-blue-600 mb-4" />
-                <CardTitle className="text-xl font-semibold text-gray-900 dark:text-foreground">
+                <feature.icon className="h-12 w-12 text-primary mb-4" />
+                <CardTitle className="text-xl font-semibold text-foreground">
                   {feature.title}
                 </CardTitle>
               </CardHeader>
-              <CardContent className="text-gray-600 dark:text-muted-foreground">
+              <CardContent className="text-muted-foreground">
                 {feature.description}
               </CardContent>
             </Card>
